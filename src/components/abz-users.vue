@@ -9,13 +9,20 @@
         <div class="users__carts">
           <UsersCart
             class="item"
-            v-for="cart in carts"
-            :key="cart.Name"
+            v-for="cart in $store.state.data.users"
+            :key="cart.id"
             :cart_data="cart"
           />
         </div>
         <div class="users__btn">
-          <button class="btn">Show more</button>
+          <button
+            class="btn"
+            type="button"
+            @click="showMore"
+            v-show="$store.state.showBtn"
+          >
+            Show more
+          </button>
         </div>
       </div>
     </div>
@@ -23,58 +30,68 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import UsersCart from "@/components/abz-users-cart";
 export default {
   name: "Users",
   components: {
     UsersCart,
   },
+  methods: {
+    ...mapActions(["GET_CARTS_FROM_API"]),
+    showMore() {
+      this.GET_CARTS_FROM_API();
+    },
+  },
+  mounted() {
+    this.GET_CARTS_FROM_API();
+  },
   data() {
     return {
-      carts: [
-        {
-          Image: "Maximillian.jpg",
-          Name: "Maximillian",
-          Position: "Leading specialist of the Control Department",
-          Email: "controldepartment@gmail.com",
-          Phone: "+380 50 678 03 24",
-        },
-        {
-          Image: "Adolph.jpg",
-          Name: "Adolph Blaine Charles David Earl Matthew Matthew",
-          Position: "Contextual advertising specialist",
-          Email: "adolph.blainecharles@gmail.com",
-          Phone: "+380 50 678 03 24",
-        },
-        {
-          Image: "Elizabeth.jpg",
-          Name: "Elizabeth",
-          Position: "Frontend developer",
-          Email: "elisabet.front@gmail.com",
-          Phone: "+380 50 678 03 24",
-        },
-        {
-          Image: "Alexander.jpg",
-          Name: "Alexander Jayden",
-          Position: "Backend developer",
-          Email: "alexander.back@gmail.com",
-          Phone: "+380 50 678 03 24",
-        },
-        {
-          Image: "Noah.jpg",
-          Name: "Noah",
-          Position: "QA",
-          Email: "noah1998@gmail.com",
-          Phone: "+380 50 678 03 24",
-        },
-        {
-          Image: "Smith.jpg",
-          Name: "Liamgrievescasey Smith Wiam",
-          Position: "Lead designer",
-          Email: "liamgrievescasey.smith@gmail.com",
-          Phone: "+380 50 678 03 24",
-        },
-      ],
+      // carts: [
+      //   {
+      //     Image: "Maximillian.jpg",
+      //     Name: "Maximillian",
+      //     Position: "Leading specialist of the Control Department",
+      //     Email: "controldepartment@gmail.com",
+      //     Phone: "+380 50 678 03 24",
+      //   },
+      //   {
+      //     Image: "Adolph.jpg",
+      //     Name: "Adolph Blaine Charles David Earl Matthew Matthew",
+      //     Position: "Contextual advertising specialist",
+      //     Email: "adolph.blainecharles@gmail.com",
+      //     Phone: "+380 50 678 03 24",
+      //   },
+      //   {
+      //     Image: "Elizabeth.jpg",
+      //     Name: "Elizabeth",
+      //     Position: "Frontend developer",
+      //     Email: "elisabet.front@gmail.com",
+      //     Phone: "+380 50 678 03 24",
+      //   },
+      //   {
+      //     Image: "Alexander.jpg",
+      //     Name: "Alexander Jayden",
+      //     Position: "Backend developer",
+      //     Email: "alexander.back@gmail.com",
+      //     Phone: "+380 50 678 03 24",
+      //   },
+      //   {
+      //     Image: "Noah.jpg",
+      //     Name: "Noah",
+      //     Position: "QA",
+      //     Email: "noah1998@gmail.com",
+      //     Phone: "+380 50 678 03 24",
+      //   },
+      //   {
+      //     Image: "Smith.jpg",
+      //     Name: "Liamgrievescasey Smith Wiam",
+      //     Position: "Lead designer",
+      //     Email: "liamgrievescasey.smith@gmail.com",
+      //     Phone: "+380 50 678 03 24",
+      //   },
+      // ],
     };
   },
 };
@@ -88,19 +105,22 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 153px 0;
-    margin: 0 -16px;
+    padding: 16% 0px;
+    margin: 0 -15px;
   }
 
   &__h2 {
     text-align: center;
     letter-spacing: normal;
   }
+  &__h2 > h2 {
+    letter-spacing: 0.2px;
+  }
   &__h2 p {
     color: #4c4b4b;
     font-size: 16px;
     line-height: 22px;
-    margin: 20px 0 51px 0;
+    margin: 20px 0 52px 0;
   }
 
   &__carts {
@@ -108,16 +128,14 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
   }
-
   &__btn {
-    margin-top: 8px;
+    padding: 4px 0 4px 0;
   }
 }
 .item {
-  width: 25%;
-  margin: 25px 2.8%;
-  width: 208px;
-  min-width: 207px;
+  width: 26%;
+  min-width: 220px;
+  margin: 25px 0;
   text-align: center;
 }
 </style>

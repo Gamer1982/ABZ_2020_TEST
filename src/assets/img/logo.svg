@@ -2,7 +2,7 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #212529;
+        fill: $main-color;
       }
 
       .cls-1, .cls-2, .cls-3 {

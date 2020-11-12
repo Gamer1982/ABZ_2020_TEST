@@ -2,7 +2,7 @@
   <header class="header wrapper">
     <div class="container">
       <div class="header__body">
-        <a href="#" class="header__logo">
+        <a href="#" v-scroll-to="'#formWrapper'" class="header__logo">
           <img src="@/assets/img/logo.svg" />
         </a>
         <div
@@ -13,72 +13,188 @@
           <span></span>
         </div>
         <nav class="header__menu" :class="{ active: isActive }">
-          <ul class="header__list">
+          <ul class="header__list hiden2">
             <li>
-              <a href="#" class="header__link">About me</a>
+              <a href="#" v-scroll-to="'#formWrapper'" class="header__link"
+                >About me</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Relationships</a>
+              <a href="#" v-scroll-to="'#formWrapper'" class="header__link"
+                >Relationships</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Requirements</a>
+              <a href="#" v-scroll-to="'#formWrapper'" class="header__link"
+                >Requirements</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Users</a>
+              <a href="#" v-scroll-to="'#formWrapper'" class="header__link"
+                >Users</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Sign Up</a>
+              <a href="#" v-scroll-to="'#formWrapper'" class="header__link"
+                >Sign Up</a
+              >
             </li>
           </ul>
-          <ul. class="header__list hiden">
+          <ul class="header__list hiden">
+            <hr />
             <li>
-              <a href="#" class="header__link">About me</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >About me</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Relationships</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Relationships</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Uswrw</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Users</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Sign Up</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Sign Up</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Terms and Conditions</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Terms and Conditions</a
+              >
             </li>
             <hr />
             <li>
-              <a href="#" class="header__link">How it workse</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >How it works</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Partnership</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Partnership</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Help</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Help</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Leave testimonial</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Leave testimonial</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Contact us</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Contact us</a
+              >
             </li>
             <hr />
             <li>
-              <a href="#" class="header__link">Articles</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Articles</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Our news</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Our news</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Testimonials</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Testimonials</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Licenses</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Licenses</a
+              >
             </li>
             <li>
-              <a href="#" class="header__link">Privacy Policy</a>
+              <a
+                href="#"
+                v-scroll-to="'#formWrapper'"
+                class="header__link"
+                @click="isActive = !isActive"
+                :class="{ active: isActive }"
+                >Privacy Policy</a
+              >
             </li>
-          </ul.>
+          </ul>
         </nav>
       </div>
     </div>
@@ -167,13 +283,25 @@ export default {
   }
 
   &__link {
-    color: #212529;
+    color: $main-color;
     font-size: 14px;
     text-decoration: none;
   }
 }
 .hiden {
   display: none;
+  hr {
+    margin: 24px 0 22px 0;
+  }
+
+  hr:first-child {
+    margin: 0 0 22px 0;
+  }
 }
-@import "/src/styles/_media.scss";
+li a:hover {
+  color: salmon;
+}
+li a:active {
+  color: royalblue;
+}
 </style>

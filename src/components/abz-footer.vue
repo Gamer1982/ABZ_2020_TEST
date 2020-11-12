@@ -1,11 +1,13 @@
 <template>
-  <section class="footer wrapper">
+  <footer class="footer wrapper">
     <div class="section">
       <div class="footer__body">
+        <hr />
+
         <p>© abz.agency specially for the test task</p>
       </div>
     </div>
-  </section>
+  </footer>
 </template>
 
 <script>
@@ -16,10 +18,16 @@ export default {
 
 <style lang="scss">
 .footer {
+  height: 60px;
   &__body {
     text-align: center;
+
+    font-size: 16px;
+    line-height: 60px;
+    font-weight: 400;
+    color: #4c4b4b;
   }
 }
-.section {
-}
+
+@import "/src/styles/_media.scss";
 </style>

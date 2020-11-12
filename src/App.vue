@@ -27,8 +27,10 @@ body {
 }
 .container {
   max-width: $max-w;
+  height: 100%;
   padding: 0 30px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .btn {
   width: 210px;
@@ -39,29 +41,44 @@ body {
   font-size: 19px;
   font-family: "Open Sans - Semibold";
   font-weight: 400;
+  margin: 2px 0 2px 0;
+	cursor: pointer;
 }
 .wrapper {
   position: relative;
+  width: 100%;
 }
 h1 {
-  color: #ffffff;
-  font-size: 50px;
-  line-height: 54px;
+  font-size: calc(10px + 100vw / 25.6);
+  line-height: calc(14px + 100vw / 25.6);
   font-weight: 400;
-  text-transform: uppercase;
-  // letter-spacing: -0.5px;
+  letter-spacing: -0.5px;
 }
+
 h2 {
-  font-size: 50px;
+  line-height: calc(10px + 100vw / 25.6);
   font-weight: 400;
-  padding: 0;
-  margin: 0;
-  line-height: 50px;
+
+  font-size: calc(10px + 100vw / 25.6);
+  letter-spacing: -0.5px;
 }
+
 h5 {
-  color: #212529;
+  color: $main-color;
   font-size: 24px;
   line-height: 24px;
-  // letter-spacing: -0.4px;
+  letter-spacing: -0.4px;
+}
+hr {
+  height: 1px;
+  background-color: #a79d9d;
+  margin-left: -30px;
+}
+a {
+  text-decoration: none;
+  color: $main-color;
+}
+img {
+  display: block;
 }
 </style>
