@@ -1,5 +1,5 @@
 module.exports = {
-	publicPath: '/test/',
+	publicPath: '/ABZ_2020_TEST/',
   css: {
     loaderOptions: {
       scss: {
