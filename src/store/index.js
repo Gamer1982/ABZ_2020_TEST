@@ -5,12 +5,17 @@ import axios from "axios";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
+	state: {
+		modal: {
+			resp: "Oops, something went wrong, try again",
+			title: "ERROR",
+		},
     data: {
       count: 0,
     },
 		showBtn: true,
 		token: localStorage.getItem("token") || "",
+		isModal: false,
   },
   mutations: {
     SET_DATA_TO_STATE: (state, data) => {
@@ -19,6 +24,17 @@ export default new Vuex.Store({
       }
       state.data = data;
 		},
+
+		SET_MODAL_RESPONS(state, { success, message }) {
+			console.log(state, { success, message })
+			if (success) {
+				state.modal.title = 'Congratulations';
+				state.modal.resp = message;
+
+			}
+		},
+
+		IS_MODAL(state,bool){state.isModal=bool},
 
 		RESET_DATA_TO_STATE(state,data){state.data.count=data},
 

@@ -42,8 +42,12 @@ body {
   font-family: "Open Sans - Semibold";
   font-weight: 400;
   margin: 2px 0 2px 0;
-	cursor: pointer;
+  cursor: pointer;
 }
+.btn:hover {
+  background-color: #d24335;
+}
+
 .wrapper {
   position: relative;
   width: 100%;

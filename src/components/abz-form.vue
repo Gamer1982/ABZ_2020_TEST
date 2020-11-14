@@ -9,6 +9,7 @@
             of users in the block from the top
           </p>
         </div>
+
         <form
           class="form__form"
           novalidate
@@ -45,6 +46,7 @@
               </template>
             </small>
           </div>
+
           <div class="form__input">
             <p>Email</p>
             <input
@@ -58,7 +60,7 @@
                 Please fill in this field
               </template>
               <template
-                v-else-if="$v.form.email.$dirty && !$v.form.email.email"
+                v-else-if="$v.form.email.$dirty && !$v.form.email.validateEmail"
               >
                 The email must be a valid email address
               </template>
@@ -103,14 +105,13 @@
             </div>
             <small class="error">
               <template
-                v-if="
-                  !$v.form.position_id.required && $v.form.position_id.$dirty
-                "
+                v-if="!$v.form.position_id.$model && $v.form.position_id.$dirty"
               >
                 Please choose position
               </template>
             </small>
           </div>
+
           <div class="form__input">
             <p>Photo</p>
             <div class="form__foto" :class="{ invalid: $v.form.file.$error }">
@@ -118,7 +119,7 @@
                 {{ foto_upload }}
               </span>
               <input
-                accept=".jpg"
+                accept=".jpg, .jpeg"
                 type="file"
                 @input="change_value($event.target.value), setFile($event)"
                 class="file"
@@ -148,32 +149,33 @@
               >
             </div>
           </div>
+
           <button type="submit" @click="btn = true" class="btn form__btn">
             Sing up now
           </button>
         </form>
       </div>
     </div>
+    <Modal v-if="$store.state.isModal"></Modal>
   </section>
 </template>
 
 <script>
+import Modal from "../modal/abz-modal";
 import Axios from "axios";
-
-import {
-  required,
-  minLength,
-  maxLength,
-  email,
-} from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "vuelidate/lib/validators";
 import { mapGetters, mapMutations, mapActions } from "vuex";
 import { getTokenApi, sendFormApi } from "../api";
-
 // ____________________________________________________________________________________________
 const phonePattern = /^[+]{0,1}380([0-9]{9})$/;
+// eslint-disable-next-line no-control-regex
+const emailPattern = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 
 export default {
   name: "Form",
+  components: {
+    Modal,
+  },
 
   data() {
     return {
@@ -197,7 +199,12 @@ export default {
   },
 
   methods: {
-    ...mapMutations(["SETTOKEN", "RESET_DATA_TO_STATE"]),
+    ...mapMutations([
+      "SETTOKEN",
+      "RESET_DATA_TO_STATE",
+      "IS_MODAL",
+      "SET_MODAL_RESPONS",
+    ]),
     ...mapActions(["GET_CARTS_FROM_API"]),
 
     createFormData() {
@@ -247,8 +254,8 @@ export default {
             // proccess server errors
           }
 
-          // this.setModalData(responseData);
-          // this.openCloseModal(true);
+          this.SET_MODAL_RESPONS(responseData);
+          this.IS_MODAL(true);
         } catch (e) {
           console.log(e);
         }
@@ -270,28 +277,6 @@ export default {
         this.$v.form.phone.$touch();
       }
     },
-
-    // submitBtn() {
-    //   this.btn = true;
-    // if (!this.$v.form.$invalid) {
-    //   const str = JSON.stringify(this.form);
-    //   axios
-    //     .post(
-    //       "https://frontend-test-assignment-api.abz.agency/api/v1/users",
-    //       str
-    //     )
-    //     .then((res) => {
-    //       console.log(res);
-    //       console.log(str);
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //       console.log(str);
-    //     });
-    // } else {
-    //   console.log("validation form error");
-    // }
-    //   },
   },
 
   async mounted() {
@@ -315,8 +300,10 @@ export default {
 
       email: {
         required,
-        email,
         minLength: minLength(4),
+        validateEmail: (val) => {
+          return emailPattern.test(String(val));
+        },
       },
 
       phone: {
@@ -352,7 +339,6 @@ export default {
   },
 };
 </script>
-
 
 <style lang="scss">
 .form {
@@ -403,9 +389,17 @@ export default {
     .invalid {
       border: solid 1px red;
     }
+    .invalid:focus {
+      border: solid 1px #db3445;
+      box-shadow: 0 0 5px #db3445;
+    }
 
     .invalid1 {
       border-left: solid 1px red;
+    }
+    .invalid1:focus {
+      border: solid 1px #db3445;
+      box-shadow: 0 0 5px #db3445;
     }
   }
 
@@ -427,10 +421,11 @@ export default {
     border-radius: 4px;
     border: 1px solid #ced4da;
     background-color: #ffffff;
+    outline: none;
   }
-
-  textarea {
-    flex-grow: 1;
+  &__input input:focus {
+    border: solid 1px #80bdff;
+    box-shadow: 0 0 5px #80bdff;
   }
 
   &__input p {
@@ -450,6 +445,14 @@ export default {
     position: relative;
     //opacity: 0.5;
   }
+  &__foto:focus-within {
+    border: solid 1px #80bdff;
+    box-shadow: 0 0 5px #80bdff;
+  }
+  &__foto.invalid:focus-within {
+    border: solid 1px #db3445;
+    box-shadow: 0 0 5px #db3445;
+  }
 
   &__foto > span {
     color: #b2b9c0;
@@ -465,6 +468,11 @@ export default {
     margin-right: 9px;
     margin-top: 2px;
     cursor: pointer;
+    outline: none;
+  }
+  &__radio input:focus {
+    border: solid 1px #122142;
+    box-shadow: 0 0 5px #122142;
   }
 
   &__radio label {
@@ -484,6 +492,8 @@ export default {
   width: 0.4px;
   height: 0.4px;
   opacity: 0;
+  position: absolute;
+  z-index: -10;
 }
 
 label {
@@ -531,5 +541,8 @@ input[type="radio"]:checked:after {
 
 .error {
   color: red;
+}
+.error:active {
+  border: 10px solid #db3445;
 }
 </style>

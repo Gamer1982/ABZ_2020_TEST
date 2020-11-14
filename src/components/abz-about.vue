@@ -109,5 +109,8 @@ export default {
     width: 96px;
 		cursor: pointer;
   }
+	.btn2:hover{
+	color: #D24335;
+}
 }
 </style>
