@@ -38,9 +38,9 @@ body {
   border-radius: 4px;
   background-color: #ef5b4c;
   color: #fefefe;
-  font-size: 19px;
-  font-family: "Open Sans - Semibold";
-  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
   margin: 2px 0 2px 0;
   cursor: pointer;
 }
