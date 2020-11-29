@@ -3,7 +3,13 @@
     <div class="cart__container">
       <div class="cart__body">
         <div class="cart__foto">
-          <img loading="lazy" :src="cart_data.photo" alt="" />
+          <img
+            loading="lazy"
+            :src="cart_data.photo"
+            alt="foto"
+            width="70px"
+            height="70px"
+          />
         </div>
         <p class="cart__name">{{ cart_data.name }}</p>
         <p class="cart__position">{{ cart_data.position }}</p>
@@ -87,8 +93,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #4c4b4b;
-    font-size: 16px;
+    color: $text-color;
+
     line-height: 24px;
   }
 

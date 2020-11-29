@@ -85,9 +85,9 @@ export default {
 
   &__response {
     padding: 17px;
-    font-size: 16px;
+
     border-bottom: 1px solid #eceef1;
-    color: #4c4b4b;
+    color: $text-color;
   }
 
   &__footer {

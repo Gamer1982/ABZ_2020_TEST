@@ -17,7 +17,8 @@
 }
 html,
 body {
-  font-family: "Open Sans";
+  font-family: $main-font;
+  font-size: 16px;
   height: 100%;
 }
 #app {
@@ -36,7 +37,7 @@ body {
   width: 210px;
   height: 38px;
   border-radius: 4px;
-  background-color: #ef5b4c;
+  background-color: $btn-color;
   color: #fefefe;
   font-size: 16px;
   line-height: 1.2;
@@ -45,7 +46,7 @@ body {
   cursor: pointer;
 }
 .btn:hover {
-  background-color: #d24335;
+  background-color: $btn-color-hover;
 }
 
 .wrapper {
@@ -62,12 +63,12 @@ h1 {
 h2 {
   line-height: calc(10px + 100vw / 25.6);
   font-weight: 400;
-
+  text-overflow: ellipsis;
   font-size: calc(10px + 100vw / 25.6);
   letter-spacing: -0.5px;
 }
 
-h5 {
+h3 {
   color: $main-color;
   font-size: 24px;
   line-height: 24px;
@@ -84,5 +85,6 @@ a {
 }
 img {
   display: block;
+  object-fit: cover;
 }
 </style>

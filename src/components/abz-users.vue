@@ -46,54 +46,6 @@ export default {
   mounted() {
     this.GET_CARTS_FROM_API();
   },
-  data() {
-    return {
-      // carts: [
-      //   {
-      //     Image: "Maximillian.jpg",
-      //     Name: "Maximillian",
-      //     Position: "Leading specialist of the Control Department",
-      //     Email: "controldepartment@gmail.com",
-      //     Phone: "+380 50 678 03 24",
-      //   },
-      //   {
-      //     Image: "Adolph.jpg",
-      //     Name: "Adolph Blaine Charles David Earl Matthew Matthew",
-      //     Position: "Contextual advertising specialist",
-      //     Email: "adolph.blainecharles@gmail.com",
-      //     Phone: "+380 50 678 03 24",
-      //   },
-      //   {
-      //     Image: "Elizabeth.jpg",
-      //     Name: "Elizabeth",
-      //     Position: "Frontend developer",
-      //     Email: "elisabet.front@gmail.com",
-      //     Phone: "+380 50 678 03 24",
-      //   },
-      //   {
-      //     Image: "Alexander.jpg",
-      //     Name: "Alexander Jayden",
-      //     Position: "Backend developer",
-      //     Email: "alexander.back@gmail.com",
-      //     Phone: "+380 50 678 03 24",
-      //   },
-      //   {
-      //     Image: "Noah.jpg",
-      //     Name: "Noah",
-      //     Position: "QA",
-      //     Email: "noah1998@gmail.com",
-      //     Phone: "+380 50 678 03 24",
-      //   },
-      //   {
-      //     Image: "Smith.jpg",
-      //     Name: "Liamgrievescasey Smith Wiam",
-      //     Position: "Lead designer",
-      //     Email: "liamgrievescasey.smith@gmail.com",
-      //     Phone: "+380 50 678 03 24",
-      //   },
-      // ],
-    };
-  },
 };
 </script>
 
@@ -117,8 +69,8 @@ export default {
     letter-spacing: 0.2px;
   }
   &__h2 p {
-    color: #4c4b4b;
-    font-size: 16px;
+    color:$text-color;
+
     line-height: 22px;
     margin: 20px 0 52px 0;
   }

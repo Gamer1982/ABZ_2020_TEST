@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header__body">
         <a href="#" v-scroll-to="'#formWrapper'" class="header__logo">
-          <img src="@/assets/img/logo.svg" />
+          <img src="@/assets/img/logo.svg" alt="logo" />
         </a>
         <div
           class="header__burger"

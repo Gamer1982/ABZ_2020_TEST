@@ -1,60 +1,94 @@
 <template>
   <main class="banner wrapper">
-    <!-- <div class="banner__img">
+    <div class="banner__img">
       <picture>
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_360.jpg"
+          type="image/webp"
+          srcset="../assets/img/banner-photo_768.webp"
           media="(max-width:360px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_768.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_992.webp,
+            ../assets/img/banner-photo_1920.webp 2x,
+            ../assets/img/banner-photo_2560.webp 3x
+          "
           media="(max-width:768px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_992.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_1024.webp,
+            ../assets/img/banner-photo_2560.webp 2x,
+            ../assets/img/banner-photo_3840.webp 3x,
+
+          "
           media="(max-width:992px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_1024.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_1024.webp,
+            ../assets/img/banner-photo_2560.webp 2x,
+            ../assets/img/banner-photo_3840.webp 3x,
+
+          "
           media="(max-width:1024px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_1366.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_1366.webp,
+            ../assets/img/banner-photo_2560.webp 2x,
+            ../assets/img/banner-photo_3840.webp 3x,
+
+          "
           media="(max-width:1366px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_1440.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_1440.webp,
+            ../assets/img/banner-photo_2560.webp 2x,
+            ../assets/img/banner-photo_3840.webp 3x,
+
+          "
           media="(max-width:1440px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_1920.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_1920.webp,
+            ../assets/img/banner-photo_3840.webp 2x,
+            ../assets/img/banner-photo.webp      3x
+          "
           media="(max-width:1920px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_2560.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_2560.webp,
+            ../assets/img/banner-photo.webp      2x
+          "
           media="(max-width:2560px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo_3840.jpg"
+          type="image/webp"
+          srcset="
+            ../assets/img/banner-photo_3840.webp,
+            ../assets/img/banner-photo.webp      2x
+          "
           media="(max-width:3840px)"
         />
         <source
-          type="image/jpeg"
-          srcset="../assets/img/banner-photo.jpg"
+          type="image/webp"
+          srcset="../assets/img/banner-photo.webp"
           media="(min-width:3841px)"
         />
-        <img src="../assets/img/banner-photo.jpg" alt="img" />
+        <img src="../assets/img/banner-photo_1366.jpg" alt="img-banner" />
       </picture>
-    </div> -->
+    </div>
     <div class="container">
       <div class="banner__body">
         <div class="banner__h1">
@@ -95,13 +129,14 @@ export default {
   margin-top: 60px;
   overflow: hidden;
 
-  background-size: cover;
-
-  // & > img {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  // }
+  &__img {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    z-index: -5;
+    transform: translate(-50%, 0);
+  }
 
   &__body {
     display: flex;
@@ -111,14 +146,10 @@ export default {
   }
 
   &__h1 {
-    //	width: 55%;
-
     display: flex;
     text-align: left;
     text-transform: uppercase;
     color: #ffffff;
-
-    //position: relative;
   }
 
   &__reminder {
@@ -131,11 +162,10 @@ export default {
   }
   &__reminder p {
     color: #ffffff;
-    font-size: 16px;
+
     font-weight: 400;
     line-height: 24px;
   }
-  //&__btn for Pixel Perfect
   &__btn {
     padding: 0 0 6px 0;
   }

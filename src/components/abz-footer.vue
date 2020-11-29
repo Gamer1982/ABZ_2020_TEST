@@ -21,11 +21,10 @@ export default {
   height: 60px;
   &__body {
     text-align: center;
-
     font-size: 16px;
     line-height: 60px;
     font-weight: 400;
-    color: #4c4b4b;
+    color:$text-color;
   }
 }
 

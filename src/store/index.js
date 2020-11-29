@@ -26,7 +26,7 @@ export default new Vuex.Store({
 		},
 
 		SET_MODAL_RESPONS(state, { success, message }) {
-			console.log(state, { success, message })
+			//console.log(state, { success, message })
 			if (success) {
 				state.modal.title = 'Congratulations';
 				state.modal.resp = message;
@@ -61,7 +61,7 @@ export default new Vuex.Store({
           //return data;
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
           return error;
         });
     },

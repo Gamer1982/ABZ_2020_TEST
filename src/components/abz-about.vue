@@ -7,10 +7,10 @@
         </div>
         <div class="about__cost">
           <div class="about__svg">
-            <img src="~@/assets/img/man-laptop-v1.svg" />
+            <img src="~@/assets/img/man-laptop-v1.svg" alt="man-laptop" />
           </div>
           <div class="about__text-wrapper">
-            <h5>I am cool frontend developer</h5>
+            <h3>I am cool frontend developer</h3>
             <div class="about__text">
               <p>
                 We will evaluate how clean your approach to writing CSS and
@@ -50,7 +50,6 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    //min-height: 721px;
   }
   & .container {
     padding-top: 15%;
@@ -89,28 +88,27 @@ export default {
   }
 
   &__text {
-    color: #4c4b4b;
+    color: $text-color;
     font-size: 16px;
     line-height: 24px;
     text-align: justify;
     margin: 22px 0 24px 0;
   }
   &__btn2 {
-    padding: 2px 0 1px 0;
-		
+    padding: 6px 0 1px 0;
   }
 
   .btn2 {
-    color: #ef5b4c;
+    color: $btn-color;
     font-family: "Open Sans";
     font-size: 16px;
     background: none;
     font-weight: 600;
     width: 96px;
-		cursor: pointer;
+    cursor: pointer;
   }
-	.btn2:hover{
-	color: #D24335;
-}
+  .btn2:hover {
+    color: $btn-color-hover;
+  }
 }
 </style>

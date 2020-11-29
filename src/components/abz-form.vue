@@ -218,7 +218,7 @@ export default {
       return formData;
     },
 
-    // =====================================================================
+    // ================================POST=====================================
     async submitForm() {
       this.$v.$touch();
 
@@ -228,24 +228,18 @@ export default {
         try {
           this.submitStatus = "OK";
           const formData = this.createFormData();
-          console.log(formData);
           let token = this.GETTOKEN;
-          console.log(":" + token);
           let response;
           response = await sendFormApi(formData, token);
-          console.log(response);
 
           if (response.status === 401) {
-            console.log("error 401");
             const newTokenData = await getTokenApi();
             this.SETTOKEN(newTokenData);
             token = newTokenData.token;
             response = await sendFormApi(formData, token);
-            console.log(response);
           }
 
           const responseData = await response.json();
-          console.log(responseData);
 
           if (responseData.success) {
             this.RESET_DATA_TO_STATE(0);
@@ -257,11 +251,11 @@ export default {
           this.SET_MODAL_RESPONS(responseData);
           this.IS_MODAL(true);
         } catch (e) {
-          console.log(e);
+          //console.log(e);
         }
       }
     },
-
+    //================================================================================================
     change_value(value) {
       this.foto_upload = value ? value : "Upload your photo";
     },
@@ -344,7 +338,7 @@ export default {
 .form {
   &__body p {
     font-family: "PTSans";
-    font-size: 16px;
+
     line-height: 28px;
   }
 
@@ -356,7 +350,7 @@ export default {
   &__body small {
     display: block;
     font-size: 12px;
-    margin: 6px 0 0 1px;
+    margin: 1px 0 5px 1px;
   }
 
   &__h2 {
@@ -370,9 +364,8 @@ export default {
   &__h2 p {
     width: 90%;
     max-width: 446px;
-    color: #4c4b4b;
-    font-family: "Open Sans";
-    font-size: 16px;
+    color: $text-color;
+    font-family: $main-font;
     font-weight: 400;
     line-height: 24px;
     margin: 20px auto 24px;
@@ -404,7 +397,7 @@ export default {
   }
 
   &__input {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -414,7 +407,7 @@ export default {
     width: 100%;
     height: 38px;
     font-family: "PTSans";
-    font-size: 16px;
+
     flex-grow: 1;
     padding-left: 12px;
     line-height: 28px;
@@ -480,7 +473,7 @@ export default {
   }
 
   &__btn {
-    margin-top: 22px;
+    margin-top: 28px;
   }
 }
 
@@ -498,7 +491,7 @@ export default {
 
 label {
   font-family: "PTSans";
-  font-size: 16px;
+
   line-height: 30px;
 }
 

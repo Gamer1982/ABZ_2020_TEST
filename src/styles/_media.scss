@@ -2,23 +2,12 @@
 @media (min-width: 1201px) {
 	h1,
 	h2 {
-		font-size: 50px;
-		line-height: 58px;
+		font-size: 57px;
+		line-height: 61px;
 	}
-	.banner {
-		background-image: url(~@/assets/img/banner-photo_1920.jpg);
-	}
+
 }
-@media (max-width: 1200px) {
-	.banner {
-		background-image: url(~@/assets/img/banner-photo_1366.jpg);
-	}
-}
-@media (max-width: 1024px) {
-	.banner {
-		background-image: url(~@/assets/img/banner-photo_1024.jpg);
-	}
-}
+
 @media (max-width: 768px) {
 	.header__burger {
 		display: block;
@@ -87,7 +76,7 @@
 	}
 	.banner {
 		height: 500px;
-		background-image: url(~@/assets/img/banner-photo_768.jpg);
+	
 	}
 	.item {
 		margin: 25px 0 31px 0;
